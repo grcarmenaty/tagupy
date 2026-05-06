@@ -753,31 +753,4 @@ class TaguchiDesign:
             f"runs={n_runs}"
             f")"
         )
-            f"runs={n_runs}"
-            f")"
-        )
-        )
- = cls._restore_index(
-                        pd.read_csv(f, index_col=0)
-                    )
-            else:
-                instance.taguchi_design = get_array(instance.matrix_name)
 
-        return instance
-
-    # ------------------------------------------------------------------
-    # Dunder helpers
-    # ------------------------------------------------------------------
-
-    def __repr__(self) -> str:  # pragma: no cover
-        n_factors = len(self.experimental_design)
-        n_cols    = len(self.columns)
-        n_runs    = len(self.experiences)
-        return (
-            f"TaguchiDesign("
-            f"matrix={self.matrix_name!r}, "
-            f"factors={n_factors}, "
-            f"columns={n_cols}, "
-            f"runs={n_runs}"
-            f")"
-        )

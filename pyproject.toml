@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taguchi"
+version = "0.1.0"
+description = "Taguchi experimental design and analysis for vibration-based SHM research"
+authors = [
+    {name = "Guillermo Reyes-Carmenaty", email = "grcarmenaty@gmail.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+mcp = [
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+tagupy-mcp = "tagupy_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["taguchi*", "tagupy_mcp*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
